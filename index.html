@@ -32,6 +32,19 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 /* Remove margins from "page content" on small screens */
 @media only screen and (max-width: 600px) {#main {margin-left: 0}}
 </style>
+ <script type="text/javascript">
+        function sendEmail() {
+            var recipient = document.getElementById("recipient").value;
+            var subject = document.getElementById("subject").value;
+            var body = document.getElementById("body").value;
+            
+            // Format the mailto link
+            var mailtoLink = "mailto:" + recipient + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+            
+            // Open the mail client
+            window.open(mailtoLink);
+        }
+    </script>
 <body class="w3-black">
 
 <!-- Icon Bar (Sidebar - hidden on small screens) -->
@@ -223,7 +236,8 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
       <p><i class="fa fa-phone fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Mobile: +8801637562735</p>
       <p><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"> </i> Email: arif26119@gmail.com</p>
     </div><br>
-    <p>Let's get in touch. Send me a message:</p>
+  <!-- 
+<p>Let's get in touch. Send me a message:</p>
 
     <form action="/action_page.php" target="_blank">
       <p><input class="w3-input w3-padding-16" type="text" placeholder="Name" required name="Name"></p>
@@ -235,6 +249,20 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
           <i class="fa fa-paper-plane"></i> SEND MESSAGE
         </button>
       </p>
+    </form>
+-->
+<h2>Send Email</h2>
+    <form>
+        <label for="recipient">Recipient:</label>
+        <input type="email" id="recipient" name="recipient"><br><br>
+        
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject"><br><br>
+        
+        <label for="body">Body:</label><br>
+        <textarea id="body" name="body" rows="4" cols="50"></textarea><br><br>
+        
+        <button type="button" onclick="sendEmail()">Send Email</button>
     </form>
   <!-- End Contact Section -->
   </div>
